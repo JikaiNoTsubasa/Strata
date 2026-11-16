@@ -102,7 +102,7 @@ Règles vérifiées en CI (`cargo deny` + un test `cargo tree`) :
 
 | Type | Rôle |
 |---|---|
-| `ConnectionConfig` | id, nom, `DbKind`, `Endpoint` (`Tcp{host,port}` / `UnixSocket{path}`), base, utilisateur, `TlsConfig`, `Environment` (dev/staging/prod), couleur, groupe, `read_only`, `PasswordPolicy` (`Keyring` / `AskEveryTime`), `record_history` |
+| `ConnectionConfig` | id, nom, `DbKind`, `Endpoint` (`Tcp{host,port}` / `UnixSocket{path}`), base, utilisateur, `TlsConfig`, `Environment` (dev/staging/prod), couleur, groupe, `read_only`, `PasswordPolicy` (`Keyring` / `AskEveryTime` / `ClientConfigFile` — ADR-0014), `record_history` |
 | `Secret` | mot de passe en `zeroize::Zeroizing<String>`, `Debug` masqué, jamais sérialisable |
 | `Value` | enum compacte (≤ 16 octets) : `Null`, `Bool`, `I64`, `F64`, `Text(Box<str>)`, `Bytes(Box<[u8]>)`, `Truncated{preview, total_len}`, `Date/Time/Timestamp/TimestampTz` (entiers), `Decimal(Box<str>)`, `Json(Box<str>)`, `Other(Box<str>)` |
 | `ColumnMeta` | nom, type serveur, `ValueKind`, nullable, table/colonne d'origine si connue (pour GRD-7) |
@@ -246,6 +246,8 @@ stateDiagram-v2
 
 ## 8. Interface (`strata-ui`)
 
+**Fenêtre unique à onglets** (ADR-0015) : une seule `AdwApplicationWindow` ; une seconde invocation de `strata` réactive la fenêtre existante (`GApplication` unique) et lui transmet ses arguments.
+
 ```mermaid
 flowchart TD
     W[AdwApplicationWindow] --> TO[AdwToastOverlay]
@@ -290,7 +292,7 @@ flowchart TD
 
 - Lance le binaire release avec `STRATA_BENCH_SCENARIO=<nom>` ; le binaire exécute le scénario en mode automatisé (ouverture de connexion, dépliage de l'arbre, requête de 1 M lignes et défilement programmatique…) puis signale « prêt ».
 - `xtask` lit `/proc/<pid>/smaps_rollup` (PSS) à intervalles, sous `weston --backend=headless` / `xvfb-run`, et produit `target/bench-mem.json`.
-- Comparaison à `bench/baseline.json` ; échec si > budget × 1,10.
+- Comparaison à `bench/baseline.json` (mesures réelles du dernier jalon validé) : la CI échoue sur une **régression** de plus de 10 % par rapport à la référence. Les budgets du CDC §5 sont des **objectifs** affichés dans le rapport, pas des seuils bloquants (ADR-0013).
 - Bases de test via `testcontainers` (PG avec 500 tables générées, table de 1 M × 10).
 
 ---
@@ -299,7 +301,7 @@ flowchart TD
 
 | Risque | Impact | Mitigation |
 |---|---|---|
-| **Renderer GPU GTK4** (`ngl`/`vulkan`) : 20–60 Mo de PSS en plus (pilotes Mesa, shaders, atlas) | Budget J0 « fenêtre vide ≤ 40 Mo » difficile | Mesurer `GSK_RENDERER=ngl` vs `cairo` dès J0 ; documenter le budget atteignable ; ne **pas** forcer cairo sans accord (perf. de défilement) |
+| **Renderer GPU GTK4** (`ngl`/`vulkan`) : 20–60 Mo de PSS en plus (pilotes Mesa, shaders, atlas) | Budget J0 « fenêtre vide ≤ 40 Mo » probablement dépassé | Accepté (ADR-0013) : mesure documentée, renderer par défaut conservé |
 | libadwaita + icônes + polices chargés au démarrage | +10–15 Mo | Ressources minimales, pas de thème d'icônes complet embarqué |
 | `sqlparser-rs` ne couvre pas tout le SQL PostgreSQL/MySQL | Complétion incorrecte | Complétion tolérante basée sur un tokenizer + parse partiel ; jamais bloquant pour l'exécution |
 | `DELIMITER` MySQL et `$$` PG dans le découpeur | Exécution erronée | Découpeur maison basé sur un lexer, testé par `proptest` |

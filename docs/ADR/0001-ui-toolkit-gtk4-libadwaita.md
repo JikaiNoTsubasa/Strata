@@ -1,6 +1,6 @@
 # ADR-0001 — Toolkit UI : GTK4 + libadwaita + GtkSourceView 5
 
-**Statut** : Proposé (imposé par le CDC §4)
+**Statut** : Accepté (imposé par le CDC §4)
 
 ## Contexte
 Application native Linux, intégration GNOME, sans moteur web, budget RAM serré.
@@ -16,5 +16,5 @@ Application native Linux, intégration GNOME, sans moteur web, budget RAM serré
 - **Relm4** : surcouche élégante mais ajoute une abstraction et du code générique ; gtk-rs direct garde le contrôle sur la mémoire et le recyclage.
 
 ## Conséquences
-- **Risque mémoire majeur** : le renderer GPU de GTK4 (`ngl`, `vulkan` par défaut en GTK ≥ 4.16) charge les pilotes Mesa (≈ 20–60 Mo PSS). Le critère J0 « fenêtre vide ≤ 40 Mo » devra être mesuré avec chaque renderer ; le résultat sera consigné ici et le budget éventuellement renégocié avec l'utilisateur.
+- **Risque mémoire majeur** : le renderer GPU de GTK4 (`ngl`, `vulkan` par défaut en GTK ≥ 4.16) charge les pilotes Mesa (≈ 20–60 Mo PSS). La PSS sera mesurée avec chaque renderer et consignée ici. Décision utilisateur (16/11/2026) : dépasser le budget est acceptable, on ne dégrade ni les fonctionnalités ni la fluidité pour l'atteindre (cf. ADR-0013) ; le renderer par défaut de GTK est donc conservé.
 - Versions minimales GTK 4.12 / libadwaita 1.4 (hypothèse 3) : fonctionnalités plus récentes (ex. `AdwToolbarView` 1.4 OK, `AdwDialog` 1.5) uniquement derrière détection de version ou évitées.

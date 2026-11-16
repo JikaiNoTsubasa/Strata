@@ -1,6 +1,6 @@
 # ADR-0008 — Résultats : lecture à la demande, cache LRU, fichier de débordement
 
-**Statut** : Proposé — **point à valider explicitement par l'utilisateur** (écriture temporaire de données sur disque)
+**Statut** : Accepté (16/11/2026) — l'écriture temporaire de pages sur disque est validée par l'utilisateur
 
 ## Contexte
 CDC §5 : jamais de résultat complet en RAM ; 1 M lignes × 10 colonnes défilables en ≤ 200 Mo ; fenêtre de 5 000 lignes, pages de 500.

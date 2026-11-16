@@ -11,15 +11,16 @@
 |---|---|---|
 | J0-1 | Prérequis poste de dev : `rustup` (stable), `pkg-config`, `libgtk-4-dev`, `libadwaita-1-dev`, `libgtksourceview-5-dev`, `gettext`, `libglib2.0-dev-bin`, `heaptrack`, `weston`/`xvfb` | — |
 | J0-2 | ☑ `ARCHITECTURE.md`, ADR 0001–0012, `ROADMAP.md` | §0 |
-| J0-3 | Validation par l'utilisateur + réponses aux questions ouvertes (CDC §17) | §0.2 |
+| J0-3 | ☑ Validation par l'utilisateur + réponses aux questions ouvertes (CDC §17), reportées dans `docs/ADR/` et `docs/DECISIONS.md` | §0.2 |
 | J0-4 | Squelette du workspace : crates vides documentées, `apps/strata`, `xtask`, lints communs (`[workspace.lints]` : `unsafe_code = "deny"`, `clippy::unwrap_used = "deny"`, `missing_docs = "warn"`), profil release, `rust-toolchain.toml`, `LICENSE`, `CHANGELOG.md` | §4, §6.1 |
 | J0-5 | Fenêtre vide : `AdwApplication` + `AdwApplicationWindow` + page d'accueil « Nouvelle connexion », runtime Tokio + pont de canaux, `tracing`, gettext initialisé, mimalloc derrière feature | §6.3, §8, §9 |
 | J0-6 | `cargo xtask bench-mem` : scénario « à vide » (lancement headless, lecture PSS `smaps_rollup`, rapport JSON, comparaison à `bench/baseline.json`) | §5, §12 |
 | J0-7 | Mesures ADR-0005 (allocateur), ADR-0011 (opt-level), renderers GSK `ngl`/`vulkan`/`cairo` | §5 |
-| J0-8 | CI GitHub Actions : fmt → clippy → test → `cargo deny` + `cargo audit` → build release → bench-mem (à vide) | §12 |
-| J0-9 | `data/` : `.desktop`, AppStream minimal, icône provisoire, schéma GSettings + compilation en dev | §11, §13 |
+| J0-8 | CI GitHub Actions : fmt → clippy → test → `cargo deny` + `cargo audit` → **détection de secrets (`gitleaks`)** → build release → bench-mem (à vide) | §12 |
+| J0-9 | `data/` : `.desktop`, AppStream minimal, emplacements d'icônes (icône fournie par l'utilisateur, cf. `docs/ICONS.md`), schéma GSettings + compilation en dev | §11, §13 |
+| J0-10 | `.gitignore` (target, `*.db`, `.env`, rapports locaux), politique « aucune donnée sensible dans le dépôt » | public |
 
-**Sortie** : architecture validée ; fenêtre vide ≤ 40 Mo PSS (ou budget renégocié sur mesures, cf. ADR-0001).
+**Sortie** : architecture validée ☑ ; PSS de la fenêtre vide mesurée et enregistrée comme référence (objectif 40 Mo, non bloquant — ADR-0013).
 
 ---
 
@@ -33,6 +34,7 @@
 | J1-4 | `strata-db` : traits `DbDriver`/`DbSession`, backend PG minimal (`connect`, `ping`, `server_info`), TLS rustls 5 modes, socket Unix | CON-3/4/5 |
 | J1-5 | `strata-engine` : `SessionManager` (connect/test/disconnect), commandes et événements de base | CON-3 |
 | J1-6 | UI : liste des connexions dans la barre latérale (couleur, environnement), dialogue de connexion (création/édition/duplication/suppression, test avec durée et erreur détaillée, mode lecture seule, politique de mot de passe), dialogue « demander le mot de passe » | CON-1/2/3/8/12 |
+| J1-6b | Lecture de `pg_service.conf` / `~/.pgpass` / `~/.my.cnf` : import pré-rempli des connexions et source de mot de passe en lecture seule (ADR-0014) | Q1 |
 | J1-7 | Bannière prod + avertissement connexion non chiffrée vers hôte non local | CON-8, §10.2 |
 | J1-8 | Tests : store (migrations, permissions), absence de mot de passe sur disque, intégration PG (testcontainers) connexion TLS/non-TLS | §16 |
 

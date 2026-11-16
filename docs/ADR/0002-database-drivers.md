@@ -1,6 +1,6 @@
 # ADR-0002 — Drivers : tokio-postgres et mysql_async directs, trait Driver/Session
 
-**Statut** : Proposé — répond à la question ouverte n°7 du CDC
+**Statut** : Accepté (16/11/2026) — répond à la question ouverte n°7 du CDC
 
 ## Contexte
 Il faut du streaming réel ligne par ligne, une annulation serveur fiable, l'accès aux métadonnées de colonnes (table/colonne d'origine pour l'éditabilité), aux avertissements serveur, et à la position d'erreur.
