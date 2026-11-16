@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.12"/>
+  <requires lib="Adw" version="1.4"/>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_About Strata</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+  <template class="StrataWindow" parent="AdwApplicationWindow">
+    <property name="title">Strata</property>
+    <property name="width-request">360</property>
+    <property name="height-request">294</property>
+    <child>
+      <object class="AdwBreakpoint">
+        <condition>max-width: 600sp</condition>
+        <setter object="split_view" property="collapsed">True</setter>
+      </object>
+    </child>
+    <property name="content">
+      <object class="AdwToastOverlay" id="toast_overlay">
+        <property name="child">
+          <object class="AdwOverlaySplitView" id="split_view">
+            <property name="sidebar">
+              <object class="AdwToolbarView">
+                <child type="top">
+                  <object class="AdwHeaderBar">
+                    <property name="title-widget">
+                      <object class="AdwWindowTitle">
+                        <property name="title" translatable="yes">Connections</property>
+                      </object>
+                    </property>
+                    <child type="start">
+                      <object class="GtkButton">
+                        <property name="icon-name">list-add-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">New Connection</property>
+                        <property name="action-name">app.new-connection</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <property name="content">
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">No connections</property>
+                    <property name="vexpand">True</property>
+                    <property name="wrap">True</property>
+                    <style>
+                      <class name="dim-label"/>
+                    </style>
+                  </object>
+                </property>
+              </object>
+            </property>
+            <property name="content">
+              <object class="AdwToolbarView">
+                <child type="top">
+                  <object class="AdwHeaderBar">
+                    <child type="start">
+                      <object class="GtkToggleButton">
+                        <property name="icon-name">sidebar-show-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Toggle Sidebar</property>
+                        <property name="active" bind-source="split_view" bind-property="show-sidebar" bind-flags="sync-create|bidirectional"/>
+                      </object>
+                    </child>
+                    <child type="end">
+                      <object class="GtkMenuButton">
+                        <property name="icon-name">open-menu-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Main Menu</property>
+                        <property name="menu-model">primary_menu</property>
+                        <property name="primary">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <property name="content">
+                  <object class="AdwStatusPage">
+                    <property name="icon-name">fr.coregeek.Strata</property>
+                    <property name="title" translatable="yes">Welcome to Strata</property>
+                    <property name="description" translatable="yes">Connect to a PostgreSQL or MySQL/MariaDB database to get started.</property>
+                    <property name="child">
+                      <object class="GtkButton">
+                        <property name="label" translatable="yes">_New Connection</property>
+                        <property name="use-underline">True</property>
+                        <property name="halign">center</property>
+                        <property name="action-name">app.new-connection</property>
+                        <style>
+                          <class name="pill"/>
+                          <class name="suggested-action"/>
+                        </style>
+                      </object>
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </property>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+</interface>

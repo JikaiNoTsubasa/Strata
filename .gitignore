@@ -1,0 +1,19 @@
+# Build output
+/target/
+
+# Local data — never commit (public repository)
+*.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+*.pem
+*.key
+
+# Local benchmark output (the reference lives in bench/baseline.json)
+/bench/local-*.json
+
+# Editors
+.idea/
+.vscode/
+*.swp

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Strata
+Comment=Lightweight database client for PostgreSQL and MySQL
+# Translators: search terms, separated by semicolons. Do NOT translate or localize the semicolons.
+Keywords=database;sql;postgresql;mysql;mariadb;query;
+Exec=strata %u
+Icon=fr.coregeek.Strata
+Terminal=false
+Type=Application
+Categories=Development;Database;GTK;
+MimeType=x-scheme-handler/postgres;x-scheme-handler/postgresql;x-scheme-handler/mysql;
+StartupNotify=true
+DBusActivatable=false

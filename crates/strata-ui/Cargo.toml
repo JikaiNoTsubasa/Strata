@@ -1,0 +1,22 @@
+[package]
+name = "strata-ui"
+description = "Strata GTK4/libadwaita user interface (the only crate depending on GTK)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+publish.workspace = true
+
+[dependencies]
+adw.workspace = true
+gettext-rs.workspace = true
+gtk.workspace = true
+strata-engine.workspace = true
+tracing.workspace = true
+
+[build-dependencies]
+glib-build-tools.workspace = true
+
+[lints]
+workspace = true

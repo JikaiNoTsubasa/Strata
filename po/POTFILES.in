@@ -1,0 +1,6 @@
+# Files containing translatable strings (relative to the repository root).
+# Regenerate po/strata.pot with: cargo xtask i18n
+crates/strata-ui/resources/ui/window.ui
+crates/strata-ui/src/application.rs
+data/fr.coregeek.Strata.desktop.in
+data/fr.coregeek.Strata.metainfo.xml.in

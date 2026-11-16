@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the strata package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: strata 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 08:56+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: crates/strata-ui/resources/ui/window.ui:8
+msgid "_About Strata"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:33
+msgid "Connections"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:39
+msgid "New Connection"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:47
+msgid "No connections"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:64
+msgid "Toggle Sidebar"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:71
+msgid "Main Menu"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:81
+msgid "Welcome to Strata"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:82
+msgid "Connect to a PostgreSQL or MySQL/MariaDB database to get started."
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:85
+msgid "_New Connection"
+msgstr ""
+
+#: crates/strata-ui/src/application.rs:77
+msgid "Connection management is not available yet."
+msgstr ""
+
+#: crates/strata-ui/src/application.rs:97
+msgid "A lightweight native database client"
+msgstr ""
+
+#: crates/strata-ui/src/application.rs:99
+msgid "translator-credits"
+msgstr ""
+
+#: data/fr.coregeek.Strata.desktop.in:2
+#: data/fr.coregeek.Strata.metainfo.xml.in:6
+msgid "Strata"
+msgstr ""
+
+#: data/fr.coregeek.Strata.desktop.in:3
+msgid "Lightweight database client for PostgreSQL and MySQL"
+msgstr ""
+
+#. Translators: search terms, separated by semicolons. Do NOT translate or localize the semicolons.
+#: data/fr.coregeek.Strata.desktop.in:5
+msgid "database;sql;postgresql;mysql;mariadb;query;"
+msgstr ""
+
+#: data/fr.coregeek.Strata.metainfo.xml.in:7
+msgid "Lightweight database client"
+msgstr ""
+
+#: data/fr.coregeek.Strata.metainfo.xml.in:9
+msgid ""
+"Strata is a fast, memory-efficient database client for PostgreSQL and MySQL/"
+"MariaDB, built with GTK and libadwaita."
+msgstr ""
+
+#: data/fr.coregeek.Strata.metainfo.xml.in:12
+msgid "Strata contributors"
+msgstr ""

@@ -1,6 +1,6 @@
 # Icônes de Strata — où les placer
 
-> L'icône est fournie par l'utilisateur. Ce document décrit le format attendu et les emplacements dans le dépôt.
+> L'icône actuelle représente une **carotte géologique** : un échantillon cylindrique (clin d'œil au symbole « base de données ») dont le flanc montre des strates aux limites ondulées, du sable au bleu profond. La version symbolique reprend le cylindre découpé en couches ondulées. Elle peut être remplacée à tout moment en écrasant les fichiers ci-dessous. Ce document décrit le format attendu et les emplacements dans le dépôt.
 > `<APP_ID>` = identifiant d'application = `fr.coregeek.Strata` (cf. ADR-0016).
 
 ## 1. Fichiers à fournir
@@ -39,7 +39,7 @@ Une fois les fichiers en place, rien d'autre à modifier :
 - **Fenêtre « À propos »** : `application-icon` = `<APP_ID>`.
 - **Développement (`cargo run`)** : le binaire ajoute `data/icons` au chemin de recherche du thème d'icônes, l'icône apparaît sans installation.
 
-Tant qu'aucune icône n'est fournie, une icône générique du système (`application-x-executable`) est utilisée et la CI émet un avertissement (non bloquant). Flathub refusera la publication sans icône.
+Si un fichier d'icône manque, GTK affiche une icône générique ; Flathub refuse la publication sans icône.
 
 ## 4. Captures d'écran (pour Flathub, plus tard)
 `data/screenshots/*.png`, référencées dans l'AppStream ; Flathub les exige pour la publication (J8).

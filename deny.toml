@@ -1,0 +1,57 @@
+# cargo-deny configuration — https://embarkstudios.github.io/cargo-deny/
+
+[graph]
+all-features = true
+
+[advisories]
+version = 2
+yanked = "deny"
+
+[licenses]
+version = 2
+# Licenses compatible with GPL-3.0-or-later.
+allow = [
+    "GPL-3.0",
+    "GPL-3.0-or-later",
+    "LGPL-2.1",
+    "LGPL-2.1-or-later",
+    "MIT",
+    "MIT-0",
+    "Apache-2.0",
+    "Apache-2.0 WITH LLVM-exception",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "ISC",
+    "Zlib",
+    "MPL-2.0",
+    "Unicode-3.0",
+    "Unicode-DFS-2016",
+    "CC0-1.0",
+]
+confidence-threshold = 0.9
+unused-allowed-license = "allow"
+
+[licenses.private]
+# Workspace crates are not published; their license is checked via Cargo.toml.
+ignore = true
+
+[bans]
+multiple-versions = "warn"
+wildcards = "deny"
+allow-wildcard-paths = true
+# Only the UI crate and the binary may depend on GTK (ARCHITECTURE §2).
+deny = [
+    { crate = "gtk4", wrappers = ["strata-ui", "strata", "libadwaita", "sourceview5"] },
+    { crate = "libadwaita", wrappers = ["strata-ui", "strata"] },
+    { crate = "sourceview5", wrappers = ["strata-ui", "strata"] },
+    # No embedded web engine (CDC §2, §4).
+    { crate = "webkit2gtk" },
+    { crate = "webkit6" },
+    { crate = "wry" },
+    # TLS goes through rustls only (ADR-0002).
+    { crate = "openssl-sys" },
+]
+
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"

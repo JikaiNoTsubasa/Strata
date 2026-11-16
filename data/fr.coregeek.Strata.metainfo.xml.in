@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>fr.coregeek.Strata</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Strata</name>
+  <summary>Lightweight database client</summary>
+  <description>
+    <p>Strata is a fast, memory-efficient database client for PostgreSQL and MySQL/MariaDB, built with GTK and libadwaita.</p>
+  </description>
+  <developer id="fr.coregeek">
+    <name>Strata contributors</name>
+  </developer>
+  <url type="homepage">https://github.com/JikaiNoTsubasa/Strata</url>
+  <url type="bugtracker">https://github.com/JikaiNoTsubasa/Strata/issues</url>
+  <url type="vcs-browser">https://github.com/JikaiNoTsubasa/Strata</url>
+  <launchable type="desktop-id">fr.coregeek.Strata.desktop</launchable>
+  <content_rating type="oars-1.1"/>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>keyboard</control>
+    <control>pointing</control>
+  </supports>
+  <releases>
+    <release version="0.1.0" date="2026-11-16" type="development"/>
+  </releases>
+</component>

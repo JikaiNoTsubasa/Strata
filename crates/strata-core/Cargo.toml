@@ -1,0 +1,14 @@
+[package]
+name = "strata-core"
+description = "Strata domain types, errors and traits (no UI, no driver)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+publish.workspace = true
+
+[dependencies]
+
+[lints]
+workspace = true

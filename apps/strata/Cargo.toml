@@ -1,0 +1,31 @@
+[package]
+name = "strata"
+description = "Strata — lightweight native database client for Linux"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "strata"
+path = "src/main.rs"
+
+[features]
+default = []
+# Rust global allocator (ADR-0005). Off by default: glibc measured lower at J0;
+# re-evaluated in J3 on the 1M-row scenario.
+mimalloc = ["dep:mimalloc"]
+
+[dependencies]
+anyhow.workspace = true
+mimalloc = { workspace = true, optional = true }
+strata-engine.workspace = true
+strata-ui.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "time", "net", "io-util"] }
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,61 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "apps/strata", "xtask"]
+default-members = ["crates/*", "apps/strata"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/JikaiNoTsubasa/Strata"
+authors = ["Strata contributors"]
+publish = false
+
+[workspace.dependencies]
+# Internal crates (others are added here as soon as a crate depends on them)
+strata-engine = { path = "crates/strata-engine" }
+strata-ui = { path = "crates/strata-ui" }
+
+# UI (only strata-ui and apps/strata may depend on these — enforced by deny.toml)
+gtk = { package = "gtk4", version = "0.11", features = ["v4_12"] }
+adw = { package = "libadwaita", version = "0.9", features = ["v1_4"] }
+glib-build-tools = "0.22"
+
+# Async
+tokio = { version = "1.54", default-features = false }
+async-channel = "2.5"
+
+# Misc
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "env-filter", "ansi", "std"] }
+gettext-rs = { version = "0.8", features = ["gettext-system"] }
+mimalloc = { version = "0.1", default-features = false }
+serde_json = "1.0"
+
+[workspace.lints.rust]
+unsafe_code = "deny"
+missing_docs = "warn"
+rust_2018_idioms = { level = "warn", priority = -1 }
+
+[workspace.lints.clippy]
+unwrap_used = "warn"
+expect_used = "warn"
+dbg_macro = "warn"
+todo = "warn"
+
+[profile.release]
+opt-level = 3        # compared with "s" in ADR-0011
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+# Size-oriented variant, used only for ADR-0011 measurements.
+[profile.release-small]
+inherits = "release"
+opt-level = "s"
+
+[profile.dev.package."*"]
+# Keep dependencies reasonably fast in debug builds.
+opt-level = 1

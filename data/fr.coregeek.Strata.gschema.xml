@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="strata">
+  <schema id="fr.coregeek.Strata" path="/fr/coregeek/Strata/">
+    <key name="window-width" type="i">
+      <default>1100</default>
+      <summary>Main window width</summary>
+    </key>
+    <key name="window-height" type="i">
+      <default>720</default>
+      <summary>Main window height</summary>
+    </key>
+    <key name="window-maximized" type="b">
+      <default>false</default>
+      <summary>Whether the main window is maximized</summary>
+    </key>
+  </schema>
+</schemalist>

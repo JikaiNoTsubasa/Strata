@@ -1,8 +1,9 @@
 # Strata — Instructions pour Claude Code
 
 ## Git
-- **Ne jamais faire de commit (ni push, merge, rebase, reset ou création de branche) sans l'accord explicite de l'utilisateur.** Préparer les changements, proposer le message de commit au format Conventional Commits, puis attendre la validation.
-- Cette règle prime sur la section 0.6 de `CDC.md` (« commits atomiques ») : les commits restent atomiques, mais chacun doit être approuvé.
+- **L'utilisateur s'occupe lui-même des commits.** Ne jamais lancer de commande git qui modifie l'historique ou les branches (commit, push, merge, rebase, reset, checkout/création de branche, stash, tag) sans demande explicite. Les commandes en lecture (`status`, `diff`, `log`) sont autorisées.
+- En fin de tâche, signaler les fichiers modifiés et proposer un message au format Conventional Commits ; ne pas l'exécuter.
+- Cette règle prime sur la section 0.6 de `CDC.md`.
 
 ## Dépôt public — aucune information sensible
 Le dépôt est public. Ne jamais y écrire (code, tests, docs, fixtures, messages de commit, CI) :

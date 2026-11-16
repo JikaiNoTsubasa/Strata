@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Strata application icon: a geological core sample. SPDX-License-Identifier: GPL-3.0-or-later -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="shade" x1="18" x2="110" y1="0" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000" stop-opacity="0.30"/>
+      <stop offset="0.25" stop-color="#000" stop-opacity="0.05"/>
+      <stop offset="0.45" stop-color="#fff" stop-opacity="0.18"/>
+      <stop offset="0.7" stop-color="#000" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" x2="0" y1="17" y2="43" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f9f06b"/>
+      <stop offset="1" stop-color="#f6d32d"/>
+    </linearGradient>
+    <clipPath id="side"><path d="M18 30 V100 A46 13 0 0 0 110 100 V30 Z"/></clipPath>
+  </defs>
+  <ellipse cx="64" cy="114" rx="44" ry="7" fill="#000" opacity="0.18"/>
+    <path d="M18 30 V100 A46 13 0 0 0 110 100 V30 Z" fill="#f5c211"/>
+  <g clip-path="url(#side)">
+  <path d="M18.00 44.00 C19.92 45.63 25.67 51.75 29.50 53.79 C33.33 55.83 37.17 55.51 41.00 56.26 C44.83 57.00 48.67 58.19 52.50 58.27 C56.33 58.34 60.17 57.46 64.00 56.71 C67.83 55.96 71.67 54.24 75.50 53.76 C79.33 53.28 83.17 54.06 87.00 53.83 C90.83 53.60 94.67 54.03 98.50 52.39 C102.33 50.75 108.08 45.40 110.00 44.00 L112 130 L16 130 Z" fill="#e66100"/>
+  <path d="M18.00 58.00 C19.92 59.34 25.67 64.33 29.50 66.05 C33.33 67.76 37.17 67.10 41.00 68.28 C44.83 69.45 48.67 72.45 52.50 73.09 C56.33 73.73 60.17 72.79 64.00 72.13 C67.83 71.48 71.67 69.74 75.50 69.17 C79.33 68.61 83.17 69.34 87.00 68.75 C90.83 68.16 94.67 67.40 98.50 65.61 C102.33 63.82 108.08 59.27 110.00 58.00 L112 130 L16 130 Z" fill="#a51d2d"/>
+  <path d="M18.00 71.00 C19.92 72.56 25.67 78.75 29.50 80.34 C33.33 81.92 37.17 80.48 41.00 80.51 C44.83 80.54 48.67 80.08 52.50 80.53 C56.33 80.97 60.17 82.37 64.00 83.16 C67.83 83.95 71.67 85.12 75.50 85.26 C79.33 85.40 83.17 84.82 87.00 84.00 C90.83 83.17 94.67 82.47 98.50 80.30 C102.33 78.14 108.08 72.55 110.00 71.00 L112 130 L16 130 Z" fill="#613583"/>
+  <path d="M18.00 85.00 C19.92 86.18 25.67 90.11 29.50 92.05 C33.33 93.99 37.17 95.48 41.00 96.63 C44.83 97.79 48.67 98.57 52.50 99.00 C56.33 99.42 60.17 99.02 64.00 99.19 C67.83 99.35 71.67 100.54 75.50 99.99 C79.33 99.44 83.17 97.10 87.00 95.88 C90.83 94.67 94.67 94.51 98.50 92.69 C102.33 90.88 108.08 86.28 110.00 85.00 L112 130 L16 130 Z" fill="#1a5fb4"/>
+  <rect x="18" y="17" width="92" height="98" fill="url(#shade)"/>
+  </g>
+  <ellipse cx="64" cy="30" rx="46" ry="13" fill="url(#face)"/>
+  <ellipse cx="64" cy="30" rx="45.5" ry="12.5" fill="none" stroke="#fff" stroke-opacity="0.5" stroke-width="1"/>
+</svg>
