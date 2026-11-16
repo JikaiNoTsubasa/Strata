@@ -23,7 +23,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             pkg-config gettext libglib2.0-dev-bin \
-            libgtk-4-dev libadwaita-1-dev
+            libgtk-4-dev libadwaita-1-dev libgtksourceview-5-dev
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy, rustfmt
@@ -31,6 +31,8 @@ jobs:
       - run: cargo fmt --all --check
       - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test --workspace
+      # Tests against real servers (Docker is available on GitHub runners).
+      - run: cargo test -p strata-db -p strata-engine -- --ignored
       - name: Translations are valid
         run: for po in po/*.po; do msgfmt --check -o /dev/null "$po"; done
 
@@ -67,7 +69,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
             pkg-config gettext libglib2.0-dev-bin \
-            libgtk-4-dev libadwaita-1-dev weston
+            libgtk-4-dev libadwaita-1-dev libgtksourceview-5-dev weston
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: cargo build --release --package strata

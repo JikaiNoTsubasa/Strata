@@ -10,10 +10,18 @@ publish.workspace = true
 
 [dependencies]
 async-channel.workspace = true
-tokio = { workspace = true, features = ["rt"] }
+russh.workspace = true
+strata-core.workspace = true
+strata-db.workspace = true
+strata-secrets.workspace = true
+strata-store.workspace = true
+tokio = { workspace = true, features = ["rt", "sync"] }
 tracing.workspace = true
 
 [dev-dependencies]
+tempfile.workspace = true
+testcontainers-modules.workspace = true
+tokio-postgres.workspace = true
 tokio = { workspace = true, features = ["rt", "rt-multi-thread", "macros", "time"] }
 
 [lints]

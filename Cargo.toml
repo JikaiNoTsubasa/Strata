@@ -13,6 +13,11 @@ publish = false
 
 [workspace.dependencies]
 # Internal crates (others are added here as soon as a crate depends on them)
+strata-core = { path = "crates/strata-core" }
+strata-db = { path = "crates/strata-db" }
+strata-sql = { path = "crates/strata-sql" }
+strata-store = { path = "crates/strata-store" }
+strata-secrets = { path = "crates/strata-secrets" }
 strata-engine = { path = "crates/strata-engine" }
 strata-ui = { path = "crates/strata-ui" }
 
@@ -20,13 +25,29 @@ strata-ui = { path = "crates/strata-ui" }
 gtk = { package = "gtk4", version = "0.11", features = ["v4_12"] }
 adw = { package = "libadwaita", version = "0.9", features = ["v1_4"] }
 glib-build-tools = "0.22"
+sourceview5 = "0.11"
 
 # Async
 tokio = { version = "1.54", default-features = false }
 async-channel = "2.5"
 
+# Databases, storage, secrets
+tokio-postgres = { version = "0.7", default-features = false, features = ["runtime"] }
+tokio-postgres-rustls = { version = "0.14", features = ["ring"] }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12", "logging"] }
+rustls-native-certs = "0.8"
+rusqlite = { version = "0.43", features = ["bundled"] }
+russh = { version = "0.65", default-features = false, features = ["ring", "rsa", "flate2"] }
+oo7 = { version = "0.7", default-features = false, features = ["tokio", "native_crypto"] }
+
 # Misc
 anyhow = "1.0"
+async-trait = "0.1"
+thiserror = "2.0"
+uuid = { version = "1", features = ["v4"] }
+zeroize = "1"
+tempfile = "3"
+testcontainers-modules = { version = "0.15", features = ["postgres"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", default-features = false, features = ["fmt", "env-filter", "ansi", "std"] }
 gettext-rs = { version = "0.8", features = ["gettext-system"] }

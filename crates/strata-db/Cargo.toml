@@ -9,6 +9,20 @@ authors.workspace = true
 publish.workspace = true
 
 [dependencies]
+async-trait.workspace = true
+rustls.workspace = true
+rustls-native-certs.workspace = true
+strata-core.workspace = true
+strata-sql.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["rt", "time"] }
+tokio-postgres.workspace = true
+tokio-postgres-rustls.workspace = true
+tracing.workspace = true
+
+[dev-dependencies]
+testcontainers-modules.workspace = true
+tokio = { workspace = true, features = ["rt-multi-thread", "macros"] }
 
 [lints]
 workspace = true

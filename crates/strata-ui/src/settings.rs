@@ -11,6 +11,8 @@ pub(crate) const WINDOW_WIDTH: &str = "window-width";
 pub(crate) const WINDOW_HEIGHT: &str = "window-height";
 /// Window maximized state key.
 pub(crate) const WINDOW_MAXIMIZED: &str = "window-maximized";
+/// Minutes after which idle sessions are closed, 0 to never close (CON-11).
+pub(crate) const IDLE_TIMEOUT_MINUTES: &str = "idle-timeout-minutes";
 
 /// Opens the application settings.
 ///

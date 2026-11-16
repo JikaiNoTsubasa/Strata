@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: strata 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 08:56+0100\n"
+"POT-Creation-Date: 2026-11-16 15:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,51 +18,951 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: crates/strata-ui/resources/ui/window.ui:8
+msgid "_Import Connections…"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:14
 msgid "_About Strata"
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:33
+#: crates/strata-ui/resources/ui/window.ui:42
+#: crates/strata-ui/resources/ui/window.ui:75
 msgid "Connections"
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:39
+#: crates/strata-ui/resources/ui/window.ui:48
+#: crates/strata-ui/src/connection_dialog.rs:549
 msgid "New Connection"
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:47
-msgid "No connections"
+#: crates/strata-ui/resources/ui/window.ui:56
+#: crates/strata-ui/resources/ui/window.ui:58
+msgid "Search connections"
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:64
+#: crates/strata-ui/resources/ui/window.ui:90
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:71
+#: crates/strata-ui/resources/ui/window.ui:97
 msgid "Main Menu"
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:81
+#: crates/strata-ui/resources/ui/window.ui:122
+#: crates/strata-ui/src/window.rs:1325
 msgid "Welcome to Strata"
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:82
+#: crates/strata-ui/resources/ui/window.ui:123
+#: crates/strata-ui/src/window.rs:1327
 msgid "Connect to a PostgreSQL or MySQL/MariaDB database to get started."
 msgstr ""
 
-#: crates/strata-ui/resources/ui/window.ui:85
+#: crates/strata-ui/resources/ui/window.ui:126
 msgid "_New Connection"
 msgstr ""
 
-#: crates/strata-ui/src/application.rs:77
-msgid "Connection management is not available yet."
+#: crates/strata-ui/resources/ui/window.ui:189
+#: crates/strata-ui/src/window.rs:641
+msgid "_Connect"
 msgstr ""
 
-#: crates/strata-ui/src/application.rs:97
+#: crates/strata-ui/resources/ui/window.ui:199
+#: crates/strata-ui/src/window.rs:637
+msgid "_Disconnect"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:208
+msgid "_Edit"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:221
+msgid "Status"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:227
+#: crates/strata-ui/src/connection_dialog.rs:329
+msgid "Server"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:233
+msgid "Encryption"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:238
+#: crates/strata-ui/src/connection_dialog.rs:266
+msgid "Environment"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:243
+msgid "Access"
+msgstr ""
+
+#: crates/strata-ui/resources/ui/window.ui:248
+#: crates/strata-ui/src/connection_dialog.rs:340
+msgid "SSH Tunnel"
+msgstr ""
+
+#: crates/strata-ui/src/application.rs:144
 msgid "A lightweight native database client"
 msgstr ""
 
-#: crates/strata-ui/src/application.rs:99
+#: crates/strata-ui/src/application.rs:148
 msgid "translator-credits"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:61
+msgid "Blue"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:62
+msgid "Green"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:63
+msgid "Yellow"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:64
+msgid "Orange"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:65
+msgid "Red"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:66
+msgid "Purple"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:67
+msgid "Brown"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:84
+msgid "Choose File…"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:90
+msgid "Clear"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:137
+#: crates/strata-ui/src/connection_dialog.rs:270
+#: crates/strata-ui/src/connection_dialog.rs:394
+msgid "None"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:252
+msgid "Unnamed"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:257
+msgid "Name"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:261
+#: crates/strata-ui/src/object_tab.rs:283
+msgid "Type"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:277
+msgid "Custom ({color})"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:286
+msgid "Label Color"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:305
+msgid "Connection Method"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:306
+msgid "Network (TCP/IP)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:306
+msgid "Unix socket"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:310
+msgid "Host"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:314
+msgid "Port"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:317
+msgid "Socket Path (file or directory)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:321
+msgid "Database (optional)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:325
+msgid "User"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:341
+msgid "Reach the database through an SSH server"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:347
+msgid "SSH Server"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:356
+msgid "SSH Port"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:361
+msgid "SSH User"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:371
+msgid "SSH Authentication"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:372
+#: crates/strata-ui/src/connection_dialog.rs:421
+#: crates/strata-ui/src/connection_dialog.rs:429
+#: crates/strata-ui/src/connection_dialog.rs:711
+msgid "Password"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:372
+msgid "Private key"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:372
+msgid "SSH agent"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:383
+msgid "Private Key"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:390
+msgid "SSH Password or Passphrase"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:392
+#: crates/strata-ui/src/messages.rs:88
+msgid "Save in the system keyring"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:393
+#: crates/strata-ui/src/messages.rs:89
+msgid "Ask every time"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:427
+#: crates/strata-ui/src/connection_dialog.rs:709
+msgid "New password (leave empty to keep the current one)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:433
+msgid "The system keyring is unavailable"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:435
+msgid "Passwords cannot be saved. Choose “Ask every time” instead."
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:443
+msgid "Authentication"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:451
+msgid "Encryption (TLS)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:458
+msgid "CA Certificate"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:459
+msgid "Client Certificate"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:460
+msgid "Client Private Key"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:462
+msgid "Security"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:470
+msgid "Read-Only"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:471
+msgid "Reject any modification of the data"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:475
+msgid "Record Query History"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:479
+msgid "Options"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:486
+msgid "_Test Connection"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:499
+msgid "_Details"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:525
+#: crates/strata-ui/src/dialogs.rs:45 crates/strata-ui/src/dialogs.rs:161
+#: crates/strata-ui/src/dialogs.rs:188 crates/strata-ui/src/dialogs.rs:286
+msgid "_Cancel"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:526
+msgid "_Save"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:547
+msgid "Edit Connection"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:705
+msgid "Password (used for the test only, never saved)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:733
+msgid "Key passphrase (used for the test only, never saved)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:736
+msgid "SSH password (used for the test only, never saved)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:738
+msgid "New key passphrase (leave empty to keep the current one)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:739
+msgid "New SSH password (leave empty to keep the current one)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:740
+msgid "Key passphrase"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:741
+msgid "SSH password"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:850
+msgid "Choose how to provide the SSH password."
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:877
+#: crates/strata-ui/src/connection_dialog.rs:891
+msgid "The system keyring is unavailable: choose another password option."
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:908
+#: crates/strata-ui/src/window.rs:212
+msgid "Strata is busy, try again."
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:930
+msgid "Testing…"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:949
+msgid "_Close"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:1037
+msgid "Connection succeeded: {product} {version} ({duration} ms)"
+msgstr ""
+
+#: crates/strata-ui/src/connection_dialog.rs:1056
+msgid "not encrypted"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:37
+msgid "_Remember in the system keyring"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:45
+msgid "C_onnect"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:78
+msgid "Enter the password of “{user}” for {connection}."
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:85
+msgid "Password Required"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:105
+msgid "SSH Key Passphrase"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:107
+msgid "Enter the passphrase of the key {key} for {connection}."
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:115
+msgid "SSH Password"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:117
+msgid "Enter the SSH password of “{target}” for {connection}."
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:146
+msgid "Unknown SSH Server"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:148
+msgid ""
+"Strata has never connected to {server}. Check with its administrator that "
+"its key fingerprint is the following before trusting it:"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:162
+msgid "_Trust and Continue"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:183
+msgid "Delete “{name}”?"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:185
+msgid ""
+"The connection settings and its saved password will be deleted. Your "
+"databases are not affected."
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:188
+msgid "_Delete"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:202
+msgid "PostgreSQL service file"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:229
+msgid "Connections Found"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:231
+msgid ""
+"Read from ~/.pgpass, pg_service.conf and ~/.my.cnf. Passwords stay in these "
+"files and are read at each connection."
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:240
+msgid "No connection found"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:257
+msgid "already saved"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:271
+msgid "Ignored Files"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:287
+msgid "_Import"
+msgstr ""
+
+#: crates/strata-ui/src/dialogs.rs:301
+msgid "Import Connections"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:11
+msgid "Host not found."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:12
+msgid "Cannot reach the server."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:13
+msgid "The server did not respond in time."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:14
+msgid "Authentication failed: check the user name and password."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:15
+msgid "A password is required."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:16
+msgid "The secure connection (TLS) failed."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:17
+msgid "The server returned an error."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:18
+msgid "The connection settings are invalid."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:19
+msgid "The system keyring could not be used."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:20
+msgid "Strata could not access its internal database."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:21
+msgid "This database type is not supported yet."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:22
+msgid "Not connected."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:23
+msgid "The object no longer exists."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:24
+msgid "Cannot reach the SSH server."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:25
+msgid "SSH authentication failed."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:26
+msgid "The SSH password or key passphrase is required."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:27
+msgid "The SSH server is not known yet."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:29
+msgid ""
+"The SSH server key has changed: the connection was refused to protect you "
+"from a possible attack."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:31
+msgid "Unexpected error."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:38
+msgid "Enter a name."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:39
+msgid "Enter a host."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:40
+msgid "Enter a valid port."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:41
+msgid "The socket path must be absolute."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:42
+msgid "Enter a user name."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:43
+msgid "Invalid label color."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:45
+msgid "Select both the client certificate and its private key."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:47
+msgid "Enter the SSH server."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:48
+msgid "Enter the SSH user name."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:49
+msgid "Enter a valid SSH port."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:50
+msgid "Select the SSH private key file."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:51
+msgid "SSH tunnels require a network (TCP/IP) connection."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:66
+msgid "Not specified"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:67
+msgid "Development"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:68
+msgid "Staging"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:69
+msgid "Production"
+msgstr ""
+
+#. Translators: short badge for the development environment.
+#: crates/strata-ui/src/messages.rs:77
+msgid "DEV"
+msgstr ""
+
+#. Translators: short badge for the staging environment.
+#: crates/strata-ui/src/messages.rs:79
+msgid "STAGING"
+msgstr ""
+
+#. Translators: short badge for the production environment.
+#: crates/strata-ui/src/messages.rs:81
+msgid "PROD"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:90
+msgid "Read from ~/.pgpass or ~/.my.cnf"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:91
+msgid "No password"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:98
+msgid "Disabled"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:99
+msgid "Preferred"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:100
+msgid "Required"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:101
+msgid "Verify certificate authority"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:102
+msgid "Verify certificate and host name"
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:109
+msgid "The connection is never encrypted."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:111
+msgid "Encrypted if the server supports it; the certificate is not verified."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:113
+msgid "Always encrypted; the certificate is not verified."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:115
+msgid ""
+"Always encrypted; the certificate must be signed by a trusted authority."
+msgstr ""
+
+#: crates/strata-ui/src/messages.rs:118
+msgid ""
+"Always encrypted; the certificate must be trusted and match the host name."
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:76 crates/strata-ui/src/object_tab.rs:96
+msgid "DDL"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:90
+msgid "Properties"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:106
+msgid "Copy DDL"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:110
+msgid "Refresh"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:214 crates/strata-ui/src/tree.rs:426
+msgid "Columns"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:232
+#: crates/strata-ui/src/object_tab.rs:246
+msgid "Primary key"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:242
+msgid "Keys and Constraints"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:247
+msgid "Foreign key"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:248
+msgid "Unique"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:249
+msgid "Check"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:250
+msgid "Exclusion"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:251
+msgid "Other"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:262 crates/strata-ui/src/tree.rs:427
+msgid "Indexes"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:269 crates/strata-ui/src/tree.rs:429
+msgid "Triggers"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:284
+msgid "Schema"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:286
+msgid "Arguments"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:291
+msgid "Estimated rows"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:292
+msgid "about {count}"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:296
+msgid "Size on disk"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:299
+msgid "Comment"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:339
+msgid "Table"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:340
+msgid "View"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:341
+msgid "Materialized view"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:342
+msgid "Sequence"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:343
+msgid "Function"
+msgstr ""
+
+#: crates/strata-ui/src/object_tab.rs:344
+msgid "Procedure"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:129
+msgid "Loading…"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:299
+msgid "No items"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:415
+msgid "Tables"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:416
+msgid "Views"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:417
+msgid "Materialized Views"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:418
+msgid "Sequences"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:419
+msgid "Functions"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:420
+msgid "Procedures"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:428
+msgid "Constraints"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:658
+msgid "current"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:663
+msgid "primary key"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:666
+msgid "unique"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:707 crates/strata-ui/src/window.rs:1358
+msgid "Connecting…"
+msgstr ""
+
+#: crates/strata-ui/src/tree.rs:711 crates/strata-ui/src/window.rs:1360
+msgid "Connected"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:638 crates/strata-ui/src/window.rs:661
+#: crates/strata-ui/src/window.rs:668
+msgid "_Refresh"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:647
+msgid "_Edit…"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:648
+msgid "D_uplicate"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:653
+msgid "_Delete…"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:660 crates/strata-ui/src/window.rs:679
+#: crates/strata-ui/src/window.rs:687
+msgid "Copy _Name"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:674
+msgid "_Open Properties"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:680
+msgid "Copy _DDL"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:722
+msgid "Copied “{text}”"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:759 crates/strata-ui/src/window.rs:1126
+msgid "DDL copied"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:982
+msgid "{name} (copy)"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1017
+msgid "Connections cannot be saved."
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1040
+msgid "Connection deleted"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1219
+msgid "Connection saved"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1292
+msgid "{name}: {error}"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1332
+msgid "Select a connection in the sidebar, or create a new one."
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1357
+msgid "Not connected"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1359
+msgid "Reconnecting…"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1371
+msgid "Encrypted (TLS)"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1372
+msgid "Encrypted by the SSH tunnel"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1373
+msgid "Not encrypted (local connection)"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1374
+msgid "Not encrypted"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1375
+msgid "Unknown"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1381
+msgid "Unix socket (local)"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1393
+msgid "Read-only"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1395
+msgid "Read and write"
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1418
+msgid "{name}: production environment, changes affect real data."
+msgstr ""
+
+#: crates/strata-ui/src/window.rs:1423
+msgid ""
+"This connection is not encrypted: data travels in clear text on the network."
 msgstr ""
 
 #: data/fr.coregeek.Strata.desktop.in:2

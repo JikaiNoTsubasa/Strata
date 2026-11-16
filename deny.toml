@@ -6,6 +6,12 @@ all-features = true
 [advisories]
 version = 2
 yanked = "deny"
+ignore = [
+    # Unmaintained (no known vulnerability), pulled only by testcontainers, a
+    # dev-dependency used by integration tests. Revisit when testcontainers
+    # moves to a maintained tar implementation.
+    { id = "RUSTSEC-2026-0440", reason = "test-only dependency of testcontainers" },
+]
 
 [licenses]
 version = 2

@@ -2,9 +2,12 @@
 //! Strata binary: logging, Tokio runtime, engine and UI start-up.
 
 use std::process::ExitCode;
+use std::sync::Arc;
 use std::time::Duration;
 
 use anyhow::Context;
+use strata_engine::{EngineConfig, StoreLocation};
+use strata_secrets::{KeyringStore, MemoryStore, SecretStore};
 use tracing_subscriber::EnvFilter;
 
 #[cfg(feature = "mimalloc")]
@@ -33,11 +36,30 @@ fn main() -> anyhow::Result<ExitCode> {
         .build()
         .context("failed to start the Tokio runtime")?;
 
-    let engine = strata_engine::spawn(runtime.handle());
+    let engine = strata_engine::spawn(runtime.handle(), engine_config());
     let code = strata_ui::run(engine);
 
     runtime.shutdown_timeout(SHUTDOWN_TIMEOUT);
     Ok(code)
+}
+
+/// Real storage and keyring, except for benchmarks which must not depend on
+/// (nor modify) the user's data.
+fn engine_config() -> EngineConfig {
+    if std::env::var_os("STRATA_BENCH_SCENARIO").is_some() {
+        EngineConfig {
+            store: StoreLocation::InMemory,
+            secrets: Arc::new(MemoryStore::new()),
+            known_hosts: None,
+        }
+    } else {
+        let secrets: Arc<dyn SecretStore> = Arc::new(KeyringStore::new(strata_ui::config::APP_ID));
+        EngineConfig {
+            store: StoreLocation::Default,
+            secrets,
+            known_hosts: None,
+        }
+    }
 }
 
 fn init_logging() {

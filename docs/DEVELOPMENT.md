@@ -86,6 +86,15 @@ cargo deny check
 cargo audit
 ```
 
+Tests d'intégration avec de vraies bases (Docker requis, via testcontainers, image PostgreSQL 17) :
+```sh
+cargo test -p strata-db -p strata-engine -- --include-ignored
+```
+Tests d'affichage de widgets (nécessitent un affichage, par ex. `weston --backend=headless`) :
+```sh
+STRATA_SNAPSHOT_DIR=/tmp cargo test -p strata-ui -- --ignored   # rend aussi des PNG dans /tmp
+```
+
 Règles de code (vérifiées par les lints du workspace) :
 - pas d'`unsafe` ;
 - pas d'`unwrap()`/`expect()` hors tests ;
@@ -120,7 +129,7 @@ cargo xtask --help                                 # toutes les options
 Langue source : anglais. Langue fournie : français (`po/fr.po`).
 
 **Ajouter une chaîne traduisible**
-- Dans le code Rust : `tr("Texte")` (module `i18n` de `strata-ui`). Jamais de texte affiché en dur.
+- Dans le code Rust : `tr("Texte")`, ou `trf("Bonjour {name}", &[("name", v)])` avec des paramètres nommés (module `i18n` de `strata-ui`). Jamais de texte affiché en dur.
 - Dans un fichier `.ui` : `<property name="label" translatable="yes">Texte</property>`.
 - Si c'est un nouveau fichier, l'ajouter à `po/POTFILES.in`.
 

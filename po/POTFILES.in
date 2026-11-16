@@ -2,5 +2,11 @@
 # Regenerate po/strata.pot with: cargo xtask i18n
 crates/strata-ui/resources/ui/window.ui
 crates/strata-ui/src/application.rs
+crates/strata-ui/src/connection_dialog.rs
+crates/strata-ui/src/dialogs.rs
+crates/strata-ui/src/messages.rs
+crates/strata-ui/src/window.rs
 data/fr.coregeek.Strata.desktop.in
 data/fr.coregeek.Strata.metainfo.xml.in
+crates/strata-ui/src/tree.rs
+crates/strata-ui/src/object_tab.rs

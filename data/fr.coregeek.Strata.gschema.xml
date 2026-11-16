@@ -13,5 +13,11 @@
       <default>false</default>
       <summary>Whether the main window is maximized</summary>
     </key>
+    <key name="idle-timeout-minutes" type="i">
+      <range min="0" max="1440"/>
+      <default>15</default>
+      <summary>Close idle database sessions after this many minutes</summary>
+      <description>0 keeps sessions open. A closed session is reopened automatically on next use.</description>
+    </key>
   </schema>
 </schemalist>

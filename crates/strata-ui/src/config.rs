@@ -21,3 +21,9 @@ pub(crate) const DEV_LOCALE_DIR: &str = env!("STRATA_DEV_LOCALE_DIR");
 
 /// GSettings schema compiled by the build script, used when not installed.
 pub(crate) const DEV_SCHEMA_DIR: &str = env!("STRATA_DEV_SCHEMA_DIR");
+
+/// Whether this build is installed (packaging provides the data paths), as
+/// opposed to running from the source tree.
+pub(crate) fn is_installed() -> bool {
+    INSTALLED_LOCALE_DIR.is_some()
+}

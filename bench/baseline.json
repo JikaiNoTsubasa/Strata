@@ -1,10 +1,10 @@
 {
   "idle/headless/cairo": {
-    "pss_kib": 33014,
-    "startup_ms": 220
+    "pss_kib": 43220,
+    "startup_ms": 223
   },
   "idle/session/default": {
-    "pss_kib": 64417,
-    "startup_ms": 390
+    "pss_kib": 81408,
+    "startup_ms": 345
   }
 }

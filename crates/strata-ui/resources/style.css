@@ -1,1 +1,25 @@
 /* Application-wide style sheet, loaded automatically by AdwApplication. */
+
+/* Environment badges (CON-8). The text label carries the meaning; colour is
+   only a reinforcement (accessibility, CDC §8). */
+.env-badge {
+  font-size: smaller;
+  font-weight: bold;
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+
+.env-badge.env-dev {
+  background-color: alpha(@success_color, 0.18);
+  color: @success_color;
+}
+
+.env-badge.env-staging {
+  background-color: alpha(@warning_color, 0.2);
+  color: @warning_color;
+}
+
+.env-badge.env-prod {
+  background-color: @error_bg_color;
+  color: @error_fg_color;
+}

@@ -8,8 +8,13 @@
 mod application;
 mod bench;
 pub mod config;
+mod connection_dialog;
+mod dialogs;
 mod i18n;
+mod messages;
+mod object_tab;
 mod settings;
+mod tree;
 mod window;
 
 use std::process::ExitCode;

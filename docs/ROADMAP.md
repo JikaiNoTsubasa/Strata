@@ -32,17 +32,19 @@ Reste à faire pour clore J0 :
 
 | # | Tâche | Exigences |
 |---|---|---|
-| J1-1 | `strata-core` : `ConnectionConfig`, `Endpoint` (TCP/socket Unix), `TlsConfig`, `Environment`, `Secret` (zeroize), `Value`, `StrataError` + tests | CON-1/4/5/8/12 |
-| J1-2 | `strata-store` : ouverture 0600/0700, migrations v1 (`connections`, `groups`, `meta`), CRUD connexions + duplication | CON-1, §11 |
-| J1-3 | `strata-secrets` : trait `SecretStore`, `KeyringStore` (oo7), `MemoryStore`, détection d'indisponibilité | CON-2, §10.1 |
-| J1-4 | `strata-db` : traits `DbDriver`/`DbSession`, backend PG minimal (`connect`, `ping`, `server_info`), TLS rustls 5 modes, socket Unix | CON-3/4/5 |
-| J1-5 | `strata-engine` : `SessionManager` (connect/test/disconnect), commandes et événements de base | CON-3 |
-| J1-6 | UI : liste des connexions dans la barre latérale (couleur, environnement), dialogue de connexion (création/édition/duplication/suppression, test avec durée et erreur détaillée, mode lecture seule, politique de mot de passe), dialogue « demander le mot de passe » | CON-1/2/3/8/12 |
-| J1-6b | Lecture de `pg_service.conf` / `~/.pgpass` / `~/.my.cnf` : import pré-rempli des connexions et source de mot de passe en lecture seule (ADR-0014) | Q1 |
-| J1-7 | Bannière prod + avertissement connexion non chiffrée vers hôte non local | CON-8, §10.2 |
-| J1-8 | Tests : store (migrations, permissions), absence de mot de passe sur disque, intégration PG (testcontainers) connexion TLS/non-TLS | §16 |
+| J1-1 | ☑ `strata-core` : `ConnectionConfig`, `Endpoint` (TCP/socket Unix), `TlsConfig`, `Environment`, `Secret` (zeroize), `Value`, `StrataError` + tests | CON-1/4/5/8/12 |
+| J1-2 | ☑ `strata-store` : ouverture 0600/0700, migrations v1 (`connections`, `groups`, `meta`), CRUD connexions + duplication | CON-1, §11 |
+| J1-3 | ☑ `strata-secrets` : trait `SecretStore`, `KeyringStore` (oo7), `MemoryStore`, détection d'indisponibilité | CON-2, §10.1 |
+| J1-4 | ☑ `strata-db` : traits `DbDriver`/`DbSession`, backend PG minimal (`connect`, `ping`, `server_info`), TLS rustls 5 modes, socket Unix | CON-3/4/5 |
+| J1-5 | ☑ `strata-engine` : `SessionManager` (connect/test/disconnect), commandes et événements de base | CON-3 |
+| J1-6 | ☑ UI : liste des connexions dans la barre latérale (couleur, environnement), dialogue de connexion (création/édition/duplication/suppression, test avec durée et erreur détaillée, mode lecture seule, politique de mot de passe), dialogue « demander le mot de passe » | CON-1/2/3/8/12 |
+| J1-6b | ☑ Lecture de `pg_service.conf` / `~/.pgpass` / `~/.my.cnf` : import pré-rempli des connexions et source de mot de passe en lecture seule (ADR-0014) | Q1 |
+| J1-7 | ☑ Bannière prod + avertissement connexion non chiffrée vers hôte non local | CON-8, §10.2 |
+| J1-8 | ☑ Tests : store (migrations, permissions), absence de mot de passe sur disque, intégration PG (testcontainers) connexion TLS/non-TLS | §16 |
 
-**Sortie** : création et test de connexion PG OK ; mot de passe dans le trousseau.
+**Sortie** : création et test de connexion PG OK ; mot de passe dans le trousseau. ☑
+
+Notes J1 : la bannière « prod » et l'avertissement « non chiffré » s'affichent sur la page de la connexion sélectionnée. La confirmation avant écriture en prod (CON-8) arrive avec l'exécution de requêtes (J3). Le test TLS `verify-full` contre un serveur à certificat est à ajouter aux tests d'intégration.
 
 ---
 
@@ -50,17 +52,33 @@ Reste à faire pour clore J0 :
 
 | # | Tâche | Exigences |
 |---|---|---|
-| J2-1 | Backend PG : bases, schémas, tables, vues, vues matérialisées, séquences, fonctions/procédures (`pg_catalog`, requêtes paramétrées) | NAV-1 |
-| J2-2 | `describe_table` : colonnes (type, nullable, défaut, commentaire), PK/FK, index, contraintes, déclencheurs, taille et lignes estimées | NAV-6 |
-| J2-3 | Génération DDL PG (tables, index, contraintes, vues via `pg_get_viewdef`, fonctions via `pg_get_functiondef`) | NAV-5 |
-| J2-4 | Arbre `GtkTreeListModel` paresseux avec nœud « chargement… » et erreurs par nœud | NAV-1/2 |
-| J2-5 | Filtre instantané sur nœuds chargés + recherche serveur (`ILIKE` sur `pg_class`) | NAV-3 |
-| J2-6 | Menu contextuel : ouvrir les données (placeholder J3), nouvelle requête, copier nom (quoté via `Dialect`), copier DDL, rafraîchir | NAV-4 |
-| J2-7 | Onglets propriétés et DDL (sourceview lecture seule) | NAV-5/6 |
-| J2-8 | Session métadonnées dédiée, fermeture sur inactivité, reconnexion avec indicateur d'état | CON-10/11 |
-| J2-9 | Bench : base de 500 tables, dépliage ≤ 300 ms, PSS ≤ 80 Mo | §5 |
+| J2-1 | ☑ Backend PG : bases, schémas, tables, vues, vues matérialisées, séquences, fonctions/procédures (`pg_catalog`, requêtes paramétrées) | NAV-1 |
+| J2-2 | ☑ `describe_table` : colonnes (type, nullable, défaut, commentaire), PK/FK, index, contraintes, déclencheurs, taille et lignes estimées | NAV-6 |
+| J2-3 | ☑ Génération DDL PG (tables, index, contraintes, vues via `pg_get_viewdef`, fonctions via `pg_get_functiondef`) | NAV-5 |
+| J2-4 | ☑ Arbre `GtkTreeListModel` paresseux avec nœud « chargement… » et erreurs par nœud | NAV-1/2 |
+| J2-5 | ◐ Filtre instantané sur nœuds chargés + recherche serveur (`ILIKE` sur `pg_class`) | NAV-3 |
+| J2-6 | ☑ Menu contextuel : ouvrir les données (placeholder J3), nouvelle requête, copier nom (quoté via `Dialect`), copier DDL, rafraîchir | NAV-4 |
+| J2-7 | ☑ Onglets propriétés et DDL (sourceview lecture seule) | NAV-5/6 |
+| J2-8 | ☑ Session métadonnées dédiée, fermeture sur inactivité, reconnexion avec indicateur d'état | CON-10/11 |
+| J2-9 | Bench : base de 500 tables, dépliage ≤ 300 ms, PSS ≤ 80 Mo (reporté à la demande de l'utilisateur) | §5 |
+
+Notes J2 :
+- J2-5 : le filtre sur les nœuds chargés est fait ; la recherche côté serveur (`ILIKE` sur le catalogue) reste à faire.
+- J2-6 : « Ouvrir les données » et « Nouvelle requête » arriveront avec l'éditeur et la grille (J3).
+- Schémas système (`pg_catalog`, `information_schema`, `pg_toast`…) masqués ; une option pour les afficher pourra être ajoutée.
+- Délai d'inactivité des sessions : clé GSettings `idle-timeout-minutes` (15 min par défaut, 0 = jamais) ; l'écran de préférences arrive en J6.
 
 ---
+
+## Ajout hors jalon — Tunnels SSH (ADR-0017)
+
+| # | Tâche | État |
+|---|---|---|
+| SSH-1 | Modèle, stockage (migration v2), secrets distincts dans le trousseau | ☑ |
+| SSH-2 | Tunnel `russh` (agent, mot de passe, clé), vérification `known_hosts`, confiance à la première connexion, refus des clés modifiées | ☑ |
+| SSH-3 | Sessions et reconnexion à travers le tunnel, test de connexion | ☑ |
+| SSH-4 | Interface : section « Tunnel SSH » du dialogue, demande de mot de passe/phrase de passe, confirmation de clé d'hôte | ☑ |
+| SSH-5 | `ProxyJump`, lecture de `~/.ssh/config`, certificats d'hôte | à planifier |
 
 ## J3 — Requêtes
 

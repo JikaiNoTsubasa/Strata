@@ -8,12 +8,19 @@
 //! * [`Command`] — UI → engine;
 //! * [`UiEvent`] — engine → UI.
 
+mod engine;
+mod pool;
 mod protocol;
+mod tunnel;
 
-pub use protocol::{Command, UiEvent};
+use std::path::PathBuf;
+use std::sync::Arc;
 
-use std::ops::ControlFlow;
-
+pub use protocol::{
+    Command, MetaHint, MetaItem, MetaRequest, PasswordChange, RequestId, SessionState, TestReport,
+    UiEvent,
+};
+use strata_secrets::SecretStore;
 use tokio::runtime::Handle;
 
 /// Capacity of the UI → engine command channel.
@@ -21,10 +28,33 @@ const COMMAND_CAPACITY: usize = 256;
 /// Capacity of the engine → UI event channel.
 const EVENT_CAPACITY: usize = 1024;
 
+/// Where the internal database lives.
+#[derive(Debug, Clone)]
+pub enum StoreLocation {
+    /// `$XDG_DATA_HOME/strata/strata.db`.
+    Default,
+    /// An explicit file.
+    Path(PathBuf),
+    /// A private in-memory database (tests).
+    InMemory,
+}
+
+/// Engine dependencies.
+pub struct EngineConfig {
+    /// Internal database location.
+    pub store: StoreLocation,
+    /// Password storage.
+    pub secrets: Arc<dyn SecretStore>,
+    /// Strata's SSH `known_hosts` file; `None` for the default location
+    /// (`$XDG_DATA_HOME/strata/known_hosts`, plus `~/.ssh/known_hosts` read
+    /// only).
+    pub known_hosts: Option<PathBuf>,
+}
+
 /// UI-side endpoints of the engine channels.
 ///
-/// Dropping the handle (or sending [`Command::Shutdown`]) stops the engine.
-#[derive(Debug)]
+/// Dropping every handle (or sending [`Command::Shutdown`]) stops the engine.
+#[derive(Debug, Clone)]
 pub struct EngineHandle {
     commands: async_channel::Sender<Command>,
     events: async_channel::Receiver<UiEvent>,
@@ -54,69 +84,12 @@ impl EngineHandle {
 }
 
 /// Starts the engine on the given Tokio runtime and returns its UI endpoints.
-pub fn spawn(runtime: &Handle) -> EngineHandle {
+pub fn spawn(runtime: &Handle, config: EngineConfig) -> EngineHandle {
     let (cmd_tx, cmd_rx) = async_channel::bounded(COMMAND_CAPACITY);
     let (ev_tx, ev_rx) = async_channel::bounded(EVENT_CAPACITY);
-    runtime.spawn(run(cmd_rx, ev_tx));
+    runtime.spawn(engine::run(config, cmd_rx, ev_tx));
     EngineHandle {
         commands: cmd_tx,
         events: ev_rx,
-    }
-}
-
-/// Engine main loop: dispatches commands until shutdown.
-async fn run(commands: async_channel::Receiver<Command>, events: async_channel::Sender<UiEvent>) {
-    tracing::debug!("engine started");
-    if events.send(UiEvent::Ready).await.is_err() {
-        return;
-    }
-    while let Ok(command) = commands.recv().await {
-        if handle(command).is_break() {
-            break;
-        }
-    }
-    events.close();
-    tracing::debug!("engine stopped");
-}
-
-/// Processes one command; `Break` stops the engine.
-fn handle(command: Command) -> ControlFlow<()> {
-    match command {
-        Command::Shutdown => ControlFlow::Break(()),
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    use std::time::Duration;
-
-    async fn next_event(handle: &EngineHandle) -> Option<UiEvent> {
-        tokio::time::timeout(Duration::from_secs(1), handle.events().recv())
-            .await
-            .expect("engine did not answer in time")
-            .ok()
-    }
-
-    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
-    async fn engine_reports_ready() {
-        let handle = spawn(&Handle::current());
-        assert_eq!(next_event(&handle).await, Some(UiEvent::Ready));
-    }
-
-    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
-    async fn shutdown_closes_event_channel() {
-        let handle = spawn(&Handle::current());
-        assert_eq!(next_event(&handle).await, Some(UiEvent::Ready));
-        assert!(handle.send(Command::Shutdown));
-        assert_eq!(next_event(&handle).await, None);
-    }
-
-    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
-    async fn send_fails_once_engine_stopped() {
-        let handle = spawn(&Handle::current());
-        assert!(handle.send(Command::Shutdown));
-        while next_event(&handle).await.is_some() {}
-        assert!(!handle.send(Command::Shutdown));
     }
 }

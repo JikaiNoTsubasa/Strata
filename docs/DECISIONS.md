@@ -13,3 +13,4 @@
 | 7. Drivers | `tokio-postgres` + `mysql_async` directs | ADR-0002 |
 | 8. Licence | Open source → GPL-3.0-or-later | ADR-0012 |
 | — Identifiant d’application | `fr.coregeek.Strata` (domaine coregeek.fr détenu par l’auteur) | ADR-0016 |
+| — Tunnels SSH (v2 dans le CDC) | Ajoutés en v1 à la demande de l'utilisateur | ADR-0017 |

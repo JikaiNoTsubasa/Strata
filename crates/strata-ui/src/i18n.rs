@@ -24,3 +24,14 @@ pub(crate) fn init() {
 pub(crate) fn tr(msgid: &str) -> String {
     gettextrs::gettext(msgid)
 }
+
+/// Translates `msgid`, then replaces each `{key}` with its value.
+///
+/// Named placeholders let translators reorder them freely.
+pub(crate) fn trf(msgid: &str, args: &[(&str, &str)]) -> String {
+    let mut text = tr(msgid);
+    for (key, value) in args {
+        text = text.replace(&format!("{{{key}}}"), value);
+    }
+    text
+}

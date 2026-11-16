@@ -114,6 +114,8 @@ Règles vérifiées en CI (`cargo deny` + un test `cargo tree`) :
 
 ## 4. Abstraction base de données (`strata-db`)
 
+> État J1 : `DbDriver::connect`, `DbSession::{ping, server_info, is_closed}` sont implémentés pour PostgreSQL ; les autres méthodes arrivent avec J2/J3.
+
 Le trait du CDC §6.2 est **scindé en deux** (cf. ADR-0002) : un serveur se connecte (`DbDriver`) et produit des **sessions** physiques (`DbSession`). Une session = une connexion réseau = un état transactionnel. Cela rend `begin/commit/rollback` non ambigus et colle à l'hypothèse 4 (1 session métadonnées + 1 session par onglet actif).
 
 ```rust

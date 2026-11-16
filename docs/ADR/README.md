@@ -20,3 +20,4 @@ Format : *Contexte → Décision → Alternatives → Conséquences*. Statuts : 
 | [0014](0014-external-client-config-files.md) | Lecture de `~/.pgpass`, `pg_service.conf`, `~/.my.cnf` | Accepté |
 | [0015](0015-single-window.md) | Fenêtre unique à onglets | Accepté |
 | [0016](0016-application-id.md) | Identifiant d’application `fr.coregeek.Strata` | Accepté |
+| [0017](0017-ssh-tunnels.md) | Tunnels SSH en processus (`russh`), confiance à la première connexion | Accepté |

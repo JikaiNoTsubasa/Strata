@@ -36,6 +36,7 @@ pub(crate) fn run(root: &Path) -> anyhow::Result<()> {
             ])
             .args([
                 "--keyword=tr",
+                "--keyword=trf",
                 "--keyword=gettext",
                 "--keyword=pgettext:1c,2",
             ])

@@ -3,8 +3,8 @@
 Lightweight, native database client for Linux (GTK4 + libadwaita), for PostgreSQL and MySQL/MariaDB.
 *Client de bases de données natif et léger pour Linux (GTK4 + libadwaita), pour PostgreSQL et MySQL/MariaDB.*
 
-> **Status / État** : early development — milestone J0 (skeleton). Not usable yet.
-> Développement en cours — jalon J0 (squelette). Pas encore utilisable.
+> **Status / État** : early development — connections and schema browsing work (PostgreSQL); queries come next.
+> Développement en cours — connexions et exploration du schéma (PostgreSQL) ; les requêtes arrivent ensuite.
 
 ## Run from source / Lancer depuis les sources
 
@@ -15,11 +15,11 @@ GTK ≥ 4.12, libadwaita ≥ 1.4 and a stable Rust toolchain.
 
 ```sh
 # Debian / Ubuntu
-sudo apt install build-essential pkg-config gettext libglib2.0-dev-bin libgtk-4-dev libadwaita-1-dev
+sudo apt install build-essential pkg-config gettext libglib2.0-dev-bin libgtk-4-dev libadwaita-1-dev libgtksourceview-5-dev
 # Fedora
-sudo dnf install gcc pkgconf-pkg-config gettext glib2-devel gtk4-devel libadwaita-devel
+sudo dnf install gcc pkgconf-pkg-config gettext glib2-devel gtk4-devel libadwaita-devel gtksourceview5-devel
 # Arch Linux
-sudo pacman -S --needed base-devel pkgconf gettext gtk4 libadwaita
+sudo pacman -S --needed base-devel pkgconf gettext gtk4 libadwaita gtksourceview5
 
 # Rust (https://rustup.rs), then open a new terminal or run: source ~/.cargo/env
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
